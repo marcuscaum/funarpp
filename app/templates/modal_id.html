@@ -1,0 +1,19 @@
+<div class="modal"  >
+	<header class="bar bar-header bar-positive" style="background: #8b0000;">
+	<h1 class="title">Detalhes</h1>
+	<div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+	</header>
+	<content has-header="true" padding="true" ng-repeat="item in lista" ng-show="([item] | filter: {cod: storageID}).length > 0" > 
+		<div id="modal" style="margin-top:65px">
+			<h1>{{item.nome_cartorio}}</h1>
+			<p style="margin: 10px 17px 25px; color:#666;"><strong>Responsável:</strong> <span style="font-size:23px"> {{item.nome}}</span></p>
+			<hr>
+			<div class="endereco">
+				<span><strong>Endereço: </strong> {{item.endereco}}</span>
+				<span><strong>Cidade: </strong> {{item.cidade}}</span>
+				<span><strong>Estado: </strong> {{item.estado}}</span>
+			</div>
+
+		</div>
+	</content>
+</div>

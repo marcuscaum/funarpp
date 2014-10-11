@@ -1,0 +1,28 @@
+<style>.item{background: white}</style>
+<div class="modal" style="height: 650px !important; overflow:hidden;"  >
+	<header class="bar bar-header bar-positive" style="background: #8b0000;">
+	<h1 class="title">Formulário de contato</h1>
+	<div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+	</header>
+	<content has-header="true" padding="true"  > 
+		<div id="modal" style="margin-top:65px; ">
+			<p>Preencha nosso formulário a seguir. Nossa equipe retornará o mais breve possível.</p>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Empresa/ Cartório: </span>
+					<input type="text" placeholder="...">
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Localidade / Cidade:</span>
+					<input type="text" placeholder="...">
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Mensagem</span>
+					<textarea type="text" placeholder="..."></textarea>
+				</label>
+				<div class="button-bar" style="margin-top:35px">
+					<button type="button" class="button icon-left ion-android-checkmark button-balanced" style="display:block; margin:-10px 11px;">Enviar</button>
+
+				</div>
+		</div>
+	</content>
+</div>

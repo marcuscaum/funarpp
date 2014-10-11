@@ -1,0 +1,139 @@
+@import "animations.less";
+@import "https://raw.githubusercontent.com/marcuscaum/Julianus/master/Class/style.less";
+
+@mobile: ~"only screen and (max-width: 529px)";
+@tablet: ~"only screen and (min-width: 530px) and (max-width: 949px)";
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans-light-webfont.eot');
+    src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-light-webfont.woff') format('woff'),
+         url('../fonts/opensans-light-webfont.ttf') format('truetype'),
+         url('../fonts/opensans-light-webfont.svg#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@mainFont: 'Open Sans';
+@mainColor: darkred;
+
+ion-side-menus{
+    .transform(translateY(165px));
+}
+
+#home, #contato, #buscas_recentes, #modal{
+	h1{
+		.font(@mainFont, 44px, @mainColor, 100, left);
+		margin: 20px 15px 0 ;
+	}
+	p{
+		.font(@mainFont, 17px, @mainColor, 100, left);
+		margin:15px 15px;
+		line-height: 26px;
+	}	
+	h2{
+		.font(@mainFont, 17px, black, 100, left);
+		line-height: 25px;
+		margin: 8px 0;
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	hr{
+		border:none;
+		border-bottom:1px solid @mainColor;
+	}
+	.endereco{
+		.defaultDivHeight (100%, 160px, left);
+		background: #f1f1f1;
+		.font(@mainFont, 17px, black, 100, left);
+		padding-top: 15px;
+		margin-top: -7px;
+		span{
+			.defaultDiv (100%, 20px, left);
+			margin: 6px 21px;
+
+		}
+	}
+
+}
+
+
+#contato{
+	.end{
+		margin-top:45px;
+		hr{
+			border-bottom:1px solid #cacaca;
+		}
+		h1{
+			.font(@mainFont, 25px, #666, 100, left);
+			margin: 20px 15px 5px;
+		}
+		p{
+			.font(@mainFont, 17px, #666, 100, left);
+			margin:0 15px;
+			line-height: 26px;
+		}	
+	}
+}
+#mainTitle {
+	.font(@mainFont, 25px, @mainColor, 100, left);
+	background:@mainColor;
+	padding: 15px;
+	color:white;
+}
+
+#nameFilter{
+	margin: -6px;
+	padding: 5px;
+	.font(@mainFont, 16px, @mainColor, 100, left);
+	line-height: 27px;
+}
+
+.slider-slide{
+	margin-top: 15px;
+}
+
+.tsb-icons{
+	margin: 0 !important;
+	position: fixed !important;
+	width: 100%;
+	z-index: 10;
+}
+
+.item{
+	text-align: left;
+	font-family: @mainFont;
+	color:@mainColor;
+	border-color:lightgray;
+}
+
+.item.activated{
+	background: @mainColor;
+	color:white;
+}
+
+.slider-slides{
+	margin-top: 105px;
+}
+
+.animate-enter {
+	-webkit-transition: 1s linear all; 
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+
+.popup{
+	.font(@mainFont, 14px, @mainColor, 100, left);
+	line-height: 21px;
+	.popup-head{display:none}
+}
+
+ion-infinite-scroll{
+	.icon{display: none;}
+}
