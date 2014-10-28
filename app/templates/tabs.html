@@ -1,5 +1,5 @@
 <ion-view title="Tabbed Slide box">
-	<ion-content scroll="false">
+    <ion-content scroll="false">
 		<tab-slide-box tab="1" >
 			<div class="tsb-icons">
 				<h1 id="mainTitle" style="margin-bottom:0;">{{msgSlide}}</h1>
@@ -10,8 +10,8 @@
 					<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-ios7-email-outline"></a>
 				</div>
 			</div>
-			<ion-slide-box  show-pager="false" on-slide-changed="slideHasChanged($index); changeMsgSlide()">
-				<ion-slide  ng-controller="RecentesCtrl" id="buscas_recentes">
+			<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index); changeMsgSlide()">
+				<ion-slide ng-controller="RecentesCtrl" id="buscas_recentes">
 					<ion-header-bar class="bar-light bar-subheader" style="top:0; background:none !Important;">
 						<div class=" list list-inset"  style="margin:0;">
 							<label class="item item-input" style="background:white; padding: 11px;">
@@ -95,7 +95,6 @@
 					</div>
 				</ion-slide>
 			</ion-slide-box>
-
 		</tab-slide-box>
 	</ion-content>
 </ion-view>
