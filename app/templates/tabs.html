@@ -1,100 +1,100 @@
 <ion-view title="Tabbed Slide box">
     <ion-content scroll="false">
-		<tab-slide-box tab="1" >
-			<div class="tsb-icons">
-				<h1 id="mainTitle" style="margin-bottom:0;">{{msgSlide}}</h1>
-				<div class="tsb-ic-wrp" style="-webkit-transform: translate3d(0, 0px, 0px) !important; padding: 13px 0; background:white;">
-					<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-ios7-clock-outline"></a>
-					<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-search"></a>
-					<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-clipboard"></a>
-					<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-ios7-email-outline"></a>
-				</div>
-			</div>
-			<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index); changeMsgSlide()">
-				<ion-slide ng-controller="RecentesCtrl" id="buscas_recentes">
-					<ion-header-bar class="bar-light bar-subheader" style="top:0; background:none !Important;">
-						<div class=" list list-inset"  style="margin:0;">
-							<label class="item item-input" style="background:white; padding: 11px;">
-								<i class="icon ion-search placeholder-icon"></i>
-								<input type="number" placeholder="Buscar por código recente..." id="nameFilter" ng-model="recentFilter">
-							</label>
-						</div>
-					</ion-header-bar>
-					<ion-content  style="top: 58px;">
-		 	            <ion-refresher on-refresh="doRefreshRecentes()"
+        <tab-slide-box tab="1" >
+        	<div class="tsb-icons">
+        		<h1 id="mainTitle" style="margin-bottom:0;">{{msgSlide}}</h1>
+        		<div class="tsb-ic-wrp" style="-webkit-transform: translate3d(0, 0px, 0px) !important; padding: 13px 0; background:white;">
+        			<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-ios7-clock-outline"></a>
+        			<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-search"></a>
+        			<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-clipboard"></a>
+        			<a href="javascript:;" ng-click="changeMsgSlide()" class="ion-ios7-email-outline"></a>
+        		</div>
+        	</div>
+        	<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index); changeMsgSlide()">
+        		<ion-slide ng-controller="RecentesCtrl" id="buscas_recentes">
+        			<ion-header-bar class="bar-light bar-subheader" style="top:0; background:none !Important;">
+        				<div class=" list list-inset"  style="margin:0;">
+        					<label class="item item-input" style="background:white; padding: 11px;">
+        						<i class="icon ion-search placeholder-icon"></i>
+        						<input type="number" placeholder="Buscar por código recente..." id="nameFilter" ng-model="recentFilter">
+        					</label>
+        				</div>
+        			</ion-header-bar>
+        			<ion-content  style="top: 58px;">
+         	            <ion-refresher on-refresh="doRefreshRecentes()"
                            pulling-text="Puxe para atualizar..."
                            refreshing-text="Atualizando lista!"
                            refreshing-icon="ion-loading-c">
             			</ion-refresher>
-					  	<ion-list >
-						    <ion-item class="item"  ng-repeat="codigo in codigos | filter: recentFilter"  ng-click="showOptions()"  style="text-align:left;" >
-								{{codigo.cod}}
-					    	</ion-item>
-					  	</ion-list>
-      					<ion-infinite-scroll distance="10%"></ion-infinite-scroll>
-					</ion-content>
-				</ion-slide>
-				<ion-slide >
-					<div id="home" ng-controller="SearchCtrl">
-						<h1>Seja Bem-vindo!</h1>
-						<p>Para efetuar a busca basta digitar abaixo o código desejado.</p>
-						<form action="" ng-submit="saveSearch(newCode); startSearch(newCode)">
-							<div class=" list list-inset"  >
-								<label class="item item-input " style="background:white">
-									<i class="icon ion-search placeholder-icon"></i>
-									<input type="text" ng-model="newCode" placeholder="Buscar por código!" >
-								</label>
-								<label class="item item-input item-select">
-									<div class="input-label">
-									Buscar em:
-									</div>
-									<select>
-										<option>Blue</option>
-										<option selected>Green</option>
-										<option>Red</option>
-									</select>
-								</label>
+        			  	<ion-list >
+        				    <ion-item class="item"  ng-repeat="codigo in codigos | filter: recentFilter"  ng-click="showOptions()"  style="text-align:left;" >
+        						{{codigo.cod}}
+        			    	</ion-item>
+        			  	</ion-list>
+        					<ion-infinite-scroll distance="10%"></ion-infinite-scroll>
+        			</ion-content>
+        		</ion-slide>
+        		<ion-slide >
+        			<div id="home" ng-controller="SearchCtrl">
+        				<h1>Seja Bem-vindo!</h1>
+        				<p>Para efetuar a busca basta digitar abaixo o código desejado.</p>
+        				<form action="" ng-submit="saveSearch(newCode); startSearch(newCode)">
+        					<div class=" list list-inset"  >
+        						<label class="item item-input " style="background:white">
+        							<i class="icon ion-search placeholder-icon"></i>
+        							<input type="text" ng-model="newCode" placeholder="Buscar por código!" >
+        						</label>
+        						<label class="item item-input item-select">
+        							<div class="input-label">
+        							Buscar em:
+        							</div>
+        							<select>
+        								<option>Blue</option>
+        								<option selected>Green</option>
+        								<option>Red</option>
+        							</select>
+        						</label>
 
-							</div>
-							<div class="button-bar">
-								<button type="submit" class="button icon-left ion-search button-balanced" style="display:block; margin:-10px 11px;">Buscar</button>
-								<button type="button" ng-click="alerta()" class="button icon-left ion-ios7-information-empty button-energized" style="display:block; margin:-10px 11px;">Ajuda</button>
-							</div>
-						</form>
-						<p style="color:darkyellow">{{msg}}</p>
-					</div>
-				</ion-slide>
-				<ion-slide  ng-controller="MainListCtrl" id="buscas_recentes">
-					<ion-content >
-						<div id="tipo_1" >
-							<ion-list >
-								<div class="item item-divider">Tipo 1</div>
-							    <a ng-repeat="item in lista" class="item" ng-click="modalGetID({{item.cod}})"  href="#">
-							      <h2>{{item.nome_cartorio}}</h2>
-							      <p style="margin:0;">{{item.nome_cartorio}}</p>
-							    </a>
-					      	</ion-list>
-				      	</div>
-      					<ion-infinite-scroll distance="10%"></ion-infinite-scroll>
-					</ion-content>
-				</ion-slide>
-				<ion-slide ng-controller="ContatoCtrl">
-					<div id="contato">
-						<h1>Fale Conosco</h1>
-						<p>Seu contato é importante para nós.</p>
-						<div class="button-bar" style="margin-top:35px">
-							<button type="button" class="button icon-left ion-android-call button-balanced" style="display:block; margin:-10px 11px;">Ligar</button>
-							<button type="button" ng-click="showModal()" class="button icon-left ion-ios7-email-outline button-positive" style="display:block; margin:-10px 11px;">Email</button>
-						</div>
-						<div class="end" style="">
-							<hr>
-							<h1>Tel, 41 3304-1300</h1>
-							<p>Rua Marechal Deodoro, 252 - 2º andar <br></p>
-							<p> Centro - Curitiba-Pr </p>
-						</div>
-					</div>
-				</ion-slide>
-			</ion-slide-box>
-		</tab-slide-box>
+        					</div>
+        					<div class="button-bar">
+        						<button type="submit" class="button icon-left ion-search button-balanced" style="display:block; margin:-10px 11px;">Buscar</button>
+        						<button type="button" ng-click="alerta()" class="button icon-left ion-ios7-information-empty button-energized" style="display:block; margin:-10px 11px;">Ajuda</button>
+        					</div>
+        				</form>
+        				<p style="color:darkyellow">{{msg}}</p>
+        			</div>
+        		</ion-slide>
+        		<ion-slide  ng-controller="MainListCtrl" id="buscas_recentes">
+        			<ion-content >
+        				<div id="tipo_1" >
+        					<ion-list >
+        						<div class="item item-divider">Tipo 1</div>
+        					    <a ng-repeat="item in lista" class="item" ng-click="modalGetID({{item.cod}})"  href="#">
+        					      <h2>{{item.nome_cartorio}}</h2>
+        					      <p style="margin:0;">{{item.nome_cartorio}}</p>
+        					    </a>
+        			      	</ion-list>
+        		      	</div>
+        					<ion-infinite-scroll distance="10%"></ion-infinite-scroll>
+        			</ion-content>
+        		</ion-slide>
+        		<ion-slide ng-controller="ContatoCtrl">
+        			<div id="contato">
+        				<h1>Fale Conosco</h1>
+        				<p>Seu contato é importante para nós.</p>
+        				<div class="button-bar" style="margin-top:35px">
+        					<button type="button" class="button icon-left ion-android-call button-balanced" style="display:block; margin:-10px 11px;">Ligar</button>
+        					<button type="button" ng-click="showModal()" class="button icon-left ion-ios7-email-outline button-positive" style="display:block; margin:-10px 11px;">Email</button>
+        				</div>
+        				<div class="end" style="">
+        					<hr>
+        					<h1>Tel, 41 3304-1300</h1>
+        					<p>Rua Marechal Deodoro, 252 - 2º andar <br></p>
+        					<p> Centro - Curitiba-Pr </p>
+        				</div>
+        			</div>
+        		</ion-slide>
+        	</ion-slide-box>
+        </tab-slide-box>
 	</ion-content>
 </ion-view>
